@@ -26,6 +26,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdWeek", "ThirdWeek", "{
 		SortModulus.cpp = SortModulus.cpp
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FirstWeek", "FirstWeek", "{25571F09-94FE-444B-A1B5-E60380A65C30}"
+	ProjectSection(SolutionItems) = preProject
+		Disc.cpp = Disc.cpp
+		MinString.cpp = MinString.cpp
+		SecondEncouter.cpp = SecondEncouter.cpp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "White", "White", "{0BE630D8-AA58-4CAB-A4AE-58ADDD227565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -47,8 +56,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{63C5AA6C-B4F4-4765-8BC5-8DDB433C0AFD} = {9ACED50A-4D2E-4EF5-9E14-713106A16ADB}
-		{780A5B0A-42D7-4C22-B4C2-ADAC3E01144E} = {9ACED50A-4D2E-4EF5-9E14-713106A16ADB}
+		{63C5AA6C-B4F4-4765-8BC5-8DDB433C0AFD} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
+		{780A5B0A-42D7-4C22-B4C2-ADAC3E01144E} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
+		{25571F09-94FE-444B-A1B5-E60380A65C30} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
+		{0BE630D8-AA58-4CAB-A4AE-58ADDD227565} = {9ACED50A-4D2E-4EF5-9E14-713106A16ADB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DE452D1-73A3-4E13-AF15-F49F91480860}
