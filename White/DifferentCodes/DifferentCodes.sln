@@ -16,11 +16,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SecondWeek", "SecondWeek", 
 		Del.cpp = Del.cpp
 		Factorial.cpp = Factorial.cpp
 		Maximum.cpp = Maximum.cpp
+		MoveStrings.cpp = MoveStrings.cpp
+		Queue.cpp = Queue.cpp
 		Reverse2.cpp = Reverse2.cpp
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdWeek", "ThirdWeek", "{780A5B0A-42D7-4C22-B4C2-ADAC3E01144E}"
 	ProjectSection(SolutionItems) = preProject
+		NamSur1.cpp = NamSur1.cpp
 		ReverseString.cpp = ReverseString.cpp
 		SortedStrings.cpp = SortedStrings.cpp
 		SortModulus.cpp = SortModulus.cpp
@@ -34,6 +37,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FirstWeek", "FirstWeek", "{
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "White", "White", "{0BE630D8-AA58-4CAB-A4AE-58ADDD227565}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForthWeek", "ForthWeek", "{6C1A4014-C31D-4C88-85E9-050AB3303908}"
+	ProjectSection(SolutionItems) = preProject
+		claFunction.cpp = claFunction.cpp
+		LectureTitle.cpp = LectureTitle.cpp
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +69,7 @@ Global
 		{780A5B0A-42D7-4C22-B4C2-ADAC3E01144E} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
 		{25571F09-94FE-444B-A1B5-E60380A65C30} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
 		{0BE630D8-AA58-4CAB-A4AE-58ADDD227565} = {9ACED50A-4D2E-4EF5-9E14-713106A16ADB}
+		{6C1A4014-C31D-4C88-85E9-050AB3303908} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DE452D1-73A3-4E13-AF15-F49F91480860}

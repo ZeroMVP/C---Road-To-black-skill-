@@ -24,7 +24,7 @@ int main() {
 		cin >> temp;
 		to_sort.push_back(temp);
 	}
-	printVector(to_sort);
+	//printVector(to_sort);
 	sort(begin(to_sort), end(to_sort), Compare);
 	printVector(to_sort);
 }

@@ -12,9 +12,9 @@ int main() {
 	cin >> b;
 	cin >> c;
 	disc = b * b - 4 * a * c;
-	if (a == 0)
+	if (a == 0 && b != 0)
 		cout << -c / b;
-	else {
+	else if (a != 0){
 		if (disc < 0)
 			cout << "";
 		else if (disc == 0)
