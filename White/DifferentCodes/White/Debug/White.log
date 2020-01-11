@@ -1,2 +1,3 @@
 ﻿  Sum.cpp
-  White.vcxproj -> C:\NoSys\Github\C---Road-To-black-skill-\White\DifferentCodes\Debug\White.exe
+C:\NoSys\Github\C---Road-To-black-skill-\White\DifferentCodes\White\Sum.cpp(16,12): error C2100:  недопустимое косвенное обращение
+C:\NoSys\Github\C---Road-To-black-skill-\White\DifferentCodes\White\Sum.cpp(16,7): error C2088:  <<: недопустимо для class

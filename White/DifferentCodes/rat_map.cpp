@@ -1,17 +1,9 @@
 #include <iostream>
 #include <sstream>
-#include <vector>
-#include <map>
 #include <set>
+#include <map>
+#include <vector>
 using namespace std;
-
-int recursive_div_helper(int a, int b)
-{
-	if (b == 0)
-		return (a);
-	else
-		return (recursive_div_helper(b, a % b));
-}
 
 class Rational {
 public:
@@ -21,86 +13,70 @@ public:
 	}
 
 	Rational(int numerator, int denominator) {
-		int div = recursive_div_helper(numerator, denominator);
-
-		p = numerator / div;
-		q = denominator / div;
-
-		if (q < 0) {
-			p *= -1;
-			q *= -1;
+		int nod = gcd(numerator, denominator);
+		numerator /= nod;
+		denominator /= nod;
+		if (denominator < 0) {
+			denominator *= -1;
+			numerator *= -1;
 		}
+		p = numerator;
+		q = denominator;
 	}
 
 	int Numerator() const {
-		return (p);
+		return p;
 	}
 
 	int Denominator() const {
-		return (q);
+		return q;
 	}
 
 private:
 	int p;
 	int q;
+	int gcd(int a, int b) {
+		return b ? gcd(b, a % b) : a;
+	}
+	// Добавьте поля
 };
 
-bool operator == (const Rational& left, const Rational& right) {
-	if (left.Numerator() == right.Numerator()
-		&& left.Denominator() == right.Denominator())
-		return (true);
-	else
-		return (false);
+Rational operator* (const Rational& l, const Rational& r) {
+	return Rational(l.Numerator() * r.Numerator(), r.Denominator() * l.Denominator());
 }
 
-Rational operator + (const Rational& left, const Rational& right) {
-	int l = (left.Numerator() * right.Denominator())
-		+ // sign of the operation
-		(right.Numerator() * left.Denominator());
-	int r = left.Denominator() * right.Denominator();
-
-	return (Rational(l, r));
+Rational operator/ (const Rational& l, const Rational& r) {
+	return Rational(l.Numerator() * r.Denominator(), l.Denominator() * r.Numerator());
 }
 
-Rational operator - (const Rational& left, const Rational& right) {
-	int l = (left.Numerator() * right.Denominator())
-		- // sign of the operation
-		(right.Numerator() * left.Denominator());
-	int r = left.Denominator() * right.Denominator();
-
-	return (Rational(l, r));
+bool operator== (const Rational& lhs, const Rational& rhs) {
+	if ((lhs.Numerator() == rhs.Numerator()) & (lhs.Denominator() == rhs.Denominator()))
+		return 1;
+	return 0;
 }
 
-Rational operator * (const Rational& left, const Rational& right) {
-	int l = left.Numerator() * right.Numerator();
-	int r = right.Denominator() * left.Denominator();
-
-	return (Rational(l, r));
+ostream& operator<< (ostream& s, const Rational& o) {
+	s << o.Numerator() << "/" << o.Denominator();
+	return s;
 }
 
-Rational operator / (const Rational& left, const Rational& right) {
-	return (left * Rational(right.Denominator(), right.Numerator()));
+istream& operator>> (istream& s, Rational& o) {
+	int num = o.Numerator();
+	int den = o.Denominator();
+	s >> num;
+	s.ignore(1);
+	s >> den;
+	o = Rational(num, den);
+	return s;
 }
 
-bool operator < (const Rational& left, const Rational& right) {
-	return (((left - right).Numerator()) < 0);
+bool operator< (const Rational& lhs, const Rational& rhs) {
+	return (lhs.Numerator() * rhs.Denominator() < rhs.Numerator() * lhs.Denominator());
 }
+// Вставьте сюда реализацию operator == для класса Rational из второй части
 
-istream& operator >> (istream& s, Rational& n) {
-	int a, b;
-	char c;
+// � еализуйте для класса Rational операторы * и /
 
-	s >> a >> c >> b;
-
-	if (s && c == '/')
-		n = Rational(a, b);
-
-	return (s);
-}
-
-ostream& operator << (ostream& s, const Rational& n) {
-	return (s << n.Numerator() << '/' << n.Denominator());
-}
 
 int main() {
 	{
@@ -111,9 +87,9 @@ int main() {
 		}
 
 		vector<Rational> v;
-		for (auto x : rs)
+		for (auto x : rs) {
 			v.push_back(x);
-
+		}
 		if (v != vector<Rational>{ {1, 25}, { 1, 2 }, { 3, 4 }}) {
 			cout << "Rationals comparison works incorrectly" << endl;
 			return 2;

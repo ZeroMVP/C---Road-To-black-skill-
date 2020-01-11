@@ -48,14 +48,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForthWeek", "ForthWeek", "{
 		rat_io.cpp = rat_io.cpp
 		rat_map.cpp = rat_map.cpp
 		rat_mul.cpp = rat_mul.cpp
+		ratException.cpp = ratException.cpp
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Yellow", "Yellow", "{F8BD6557-F59E-43C0-9348-0E001123B11A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "First", "First", "{20DA7C6B-9400-496C-A0A9-CDBE46EC86CE}"
 	ProjectSection(SolutionItems) = preProject
+		AllSqr.cpp = AllSqr.cpp
 		Average.cpp = Average.cpp
 		Mass.cpp = Mass.cpp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Four", "Four", "{7F1D707F-D526-449D-BD76-ED6AA5D9258A}"
+	ProjectSection(SolutionItems) = preProject
+		PartSet.cpp = PartSet.cpp
+		PartVector.cpp = PartVector.cpp
+		WordBreak.cpp = WordBreak.cpp
 	EndProjectSection
 EndProject
 Global
@@ -86,6 +95,7 @@ Global
 		{6C1A4014-C31D-4C88-85E9-050AB3303908} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
 		{F8BD6557-F59E-43C0-9348-0E001123B11A} = {9ACED50A-4D2E-4EF5-9E14-713106A16ADB}
 		{20DA7C6B-9400-496C-A0A9-CDBE46EC86CE} = {F8BD6557-F59E-43C0-9348-0E001123B11A}
+		{7F1D707F-D526-449D-BD76-ED6AA5D9258A} = {F8BD6557-F59E-43C0-9348-0E001123B11A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DE452D1-73A3-4E13-AF15-F49F91480860}

@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int recursive_div_helper(int a, int b)
-{
-	if (b == 0)
-		return (a);
-	else
-		return (recursive_div_helper(b, a % b));
-}
-
 class Rational {
 public:
 	Rational() {
@@ -17,54 +9,48 @@ public:
 	}
 
 	Rational(int numerator, int denominator) {
-		int div = recursive_div_helper(numerator, denominator);
-
-		p = numerator / div;
-		q = denominator / div;
-
-		if (q < 0) {
-			p *= -1;
-			q *= -1;
+		int nod = gcd(numerator, denominator);
+		numerator /= nod;
+		denominator /= nod;
+		if (denominator < 0) {
+			denominator *= -1;
+			numerator *= -1;
 		}
+		p = numerator;
+		q = denominator;
 	}
 
 	int Numerator() const {
-		return (p);
+		return p;
 	}
 
 	int Denominator() const {
-		return (q);
+		return q;
 	}
 
 private:
 	int p;
 	int q;
+	int gcd(int a, int b) {
+		return b ? gcd(b, a % b) : a;
+	}
+	// Добавьте поля
 };
 
-bool operator == (const Rational& left, const Rational& right) {
-	if (left.Numerator() == right.Numerator()
-		&& left.Denominator() == right.Denominator())
-		return (true);
-	else
-		return (false);
+Rational operator+ (const Rational& lhs, const Rational& rhs) {
+	int num = lhs.Numerator() * rhs.Denominator() + rhs.Numerator() * lhs.Denominator();
+	int den = lhs.Denominator() * rhs.Denominator();
+	return Rational(num, den);
 }
 
-Rational operator + (const Rational& left, const Rational& right) {
-	int l = (left.Numerator() * right.Denominator())
-		+ // sign of the operation
-		(right.Numerator() * left.Denominator());
-	int r = left.Denominator() * right.Denominator();
-
-	return (Rational(l, r));
+Rational operator- (const Rational& lhs, const Rational& rhs) {
+	return Rational(lhs.Numerator() * rhs.Denominator() - rhs.Numerator() * lhs.Denominator(), lhs.Denominator() * rhs.Denominator());
 }
 
-Rational operator - (const Rational& left, const Rational& right) {
-	int l = (left.Numerator() * right.Denominator())
-		- // sign of the operation
-		(right.Numerator() * left.Denominator());
-	int r = left.Denominator() * right.Denominator();
-
-	return (Rational(l, r));
+bool operator== (const Rational& lhs, const Rational& rhs) {
+	if ((lhs.Numerator() == rhs.Numerator()) & (lhs.Denominator() == rhs.Denominator()))
+		return 1;
+	return 0;
 }
 
 int main() {

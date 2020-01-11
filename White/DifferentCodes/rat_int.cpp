@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int recursive_div_helper(int a, int b)
-{
-	if (b == 0)
-		return (a);
-	else
-		return (recursive_div_helper(b, a % b));
-}
-
 class Rational {
 public:
 	Rational() {
@@ -17,28 +9,32 @@ public:
 	}
 
 	Rational(int numerator, int denominator) {
-		int div = recursive_div_helper(numerator, denominator);
-
-		p = numerator / div;
-		q = denominator / div;
-
-		if (q < 0) {
-			p *= -1;
-			q *= -1;
+		int nod = gcd(numerator, denominator);
+		numerator /= nod;
+		denominator /= nod;
+		if (denominator < 0) {
+			denominator *= -1;
+			numerator *= -1;
 		}
+		p = numerator;
+		q = denominator;
 	}
 
 	int Numerator() const {
-		return (p);
+		return p;
 	}
 
 	int Denominator() const {
-		return (q);
+		return q;
 	}
 
 private:
 	int p;
 	int q;
+	int gcd(int a, int b) {
+		return b ? gcd(b, a % b) : a;
+	}
+	// Добавьте поля
 };
 
 int main() {
