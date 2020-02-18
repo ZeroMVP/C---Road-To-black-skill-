@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SecondWeek", "SecondWeek", 
 		Del.cpp = Del.cpp
 		Factorial.cpp = Factorial.cpp
 		Maximum.cpp = Maximum.cpp
+		MonthlyDeeds.cpp = MonthlyDeeds.cpp
 		MoveStrings.cpp = MoveStrings.cpp
 		Queue.cpp = Queue.cpp
 		Reverse2.cpp = Reverse2.cpp
@@ -62,9 +63,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "First", "First", "{20DA7C6B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Four", "Four", "{7F1D707F-D526-449D-BD76-ED6AA5D9258A}"
 	ProjectSection(SolutionItems) = preProject
+		DuplErase.cpp = DuplErase.cpp
 		PartSet.cpp = PartSet.cpp
 		PartVector.cpp = PartVector.cpp
 		WordBreak.cpp = WordBreak.cpp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Final", "Final", "{DC604BFF-BC53-4CC0-9A68-B017750C132F}"
+	ProjectSection(SolutionItems) = preProject
+		Database.cpp = Database.cpp
 	EndProjectSection
 EndProject
 Global
@@ -96,6 +103,7 @@ Global
 		{F8BD6557-F59E-43C0-9348-0E001123B11A} = {9ACED50A-4D2E-4EF5-9E14-713106A16ADB}
 		{20DA7C6B-9400-496C-A0A9-CDBE46EC86CE} = {F8BD6557-F59E-43C0-9348-0E001123B11A}
 		{7F1D707F-D526-449D-BD76-ED6AA5D9258A} = {F8BD6557-F59E-43C0-9348-0E001123B11A}
+		{DC604BFF-BC53-4CC0-9A68-B017750C132F} = {0BE630D8-AA58-4CAB-A4AE-58ADDD227565}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DE452D1-73A3-4E13-AF15-F49F91480860}

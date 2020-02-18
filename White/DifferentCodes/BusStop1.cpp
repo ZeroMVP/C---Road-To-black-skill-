@@ -1,111 +1,94 @@
+#include <math.h>
 #include <iostream>
 #include <vector>
 #include <map>
 #include <algorithm>
-
+#include <set>
 using namespace std;
 
-map<string, vector<string>> buses;
+void busesForStop(string stop_name, map<string, vector<string>> stop_buses) {
 
-void newBus() {
-
-	string bus = "";
-	string bus_stop = "";
-	int stop_count = 0;
-	vector<string> bus_stops;
-	cin >> bus;
-	cin >> stop_count;
-	for (int i = 0; i < stop_count; i++) {
-		cin >> bus_stop;
-		bus_stops.push_back(bus_stop);
+	string answer = "";
+	if (size(stop_buses[stop_name]) == 0)
+		answer = "No stop";
+	else {
+		for (string name : stop_buses[stop_name])
+			answer = answer + name + " ";
 	}
-	buses[bus] = bus_stops;
+	answer += "\n";
+	cout << answer;
+
 }
 
-void allBuses() {
+void stopsForBus(string bus_name, map<string, vector<string>> stop_buses, map<string, vector<string>> bus_stops) {
 
-	if (buses.size() == 0) {
+	for (auto stop : bus_stops[bus_name]) {
+		string answer = "Stop " + stop + ": ";
+		string check = "Stop " + stop + ": ";
+		for (auto bus : stop_buses[stop]) {
+			if (bus != bus_name)
+				answer = answer + bus + " ";
+		}
+		if (answer == check)
+			answer += "no interchange";
+		answer += "\n";
+		cout << answer;
+	}
+}
+
+void allBuses(map<string, vector<string>> bus_stops) {
+
+	if (size(bus_stops) == 0) {
 		cout << "No buses\n";
 		return;
 	}
-
-	for (auto item : buses) {
-		cout << "Bus " << item.first << ": ";
-		for (string stops : item.second) {
-			cout << stops << " ";
-		}
-		cout << "\n";
-	}
-}
-
-string busesForStop(string stop, string bus_not_include) {
-
-	string buses_answer;
-	for (auto item : buses) {
-		if (count(begin(item.second), end(item.second), stop) != 0) {
-			if (item.first != bus_not_include) {
-				buses_answer += item.first;
-				buses_answer += " ";
-			}
-		}
+	for (auto item : bus_stops) {
+		string answer = "Bus " + item.first + ": ";
+		for (auto stop : item.second)
+			answer = answer + stop + " ";
+		answer += "\n";
+		cout << answer;
 	}
 
-	return buses_answer;
-
 }
-
-void requestSystem(int number_of_requests) {
-
-	for (int i = 0; i < number_of_requests; i++) {
-
-		string request = "";
-		cin >> request;
-		if (request == "NEW_BUS") {
-			newBus();
-		}
-		else if (request == "BUSES_FOR_STOP") {
-			string stop_name = "";
-			string buses_answer = "";
-			cin >> stop_name;
-			buses_answer = busesForStop(stop_name, "");
-			if (buses_answer == "")
-				cout << "No stop\n";
-			else
-				cout << buses_answer << "\n";
-		}
-		else if (request == "STOPS_FOR_BUS")
-		{
-			string bus_name = "";
-			string answer;
-			int num = 0;
-			cin >> bus_name;
-			for (auto item : buses) {
-				if (item.first == bus_name)
-					num += 1;
-			}
-			if (num == 0)
-				cout << "No bus\n";
-			else
-			{
-				for (auto item : buses[bus_name]) {
-					answer = busesForStop(item, bus_name);
-					if (answer == "")
-						answer = "no interchange";
-					cout << "Stop " << item << ": " << answer << "\n";
-				}
-			}
-		}
-		else
-			allBuses();
-
-	}
-}
-
 
 int main() {
 
-	int number_of_requests = 0;
-	cin >> number_of_requests;
-	requestSystem(number_of_requests);
-	return 1;
+
+	map<string, vector<string>> bus_stops, stop_buses;
+	int num_of_requests = 0;
+	cin >> num_of_requests;
+	for (int i = 0; i < num_of_requests; ++i) {
+		string request;
+		cin >> request;
+
+		if (request == "NEW_BUS") {
+			string bus_name;
+			cin >> bus_name;
+			int stop_count;
+			cin >> stop_count;
+			for (int j = 0; j < stop_count; ++j) {
+				string stop_name;
+				cin >> stop_name;
+				bus_stops[bus_name].push_back(stop_name);
+				stop_buses[stop_name].push_back(bus_name);
+			}
+		}
+		else if (request == "BUSES_FOR_STOP") {
+			string stop_name;
+			cin >> stop_name;
+			busesForStop(stop_name, stop_buses);
+		}
+		else if (request == "ALL_BUSES")
+			allBuses(bus_stops);
+		else {
+			string bus_name;
+			cin >> bus_name;
+			if (bus_stops.count(bus_name) == 0)
+				cout << "No bus\n";
+			else
+				stopsForBus(bus_name, stop_buses, bus_stops);
+		}
+	}
+	return 0;
 }
