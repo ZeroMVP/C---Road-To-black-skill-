@@ -13,8 +13,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SecondWeek", "SecondWeek", "{63C5AA6C-B4F4-4765-8BC5-8DDB433C0AFD}"
 	ProjectSection(SolutionItems) = preProject
 		BusStop1.cpp = BusStop1.cpp
+		BusStop2.cpp = BusStop2.cpp
 		Del.cpp = Del.cpp
 		Factorial.cpp = Factorial.cpp
+		HighQuality.cpp = HighQuality.cpp
 		Maximum.cpp = Maximum.cpp
 		MonthlyDeeds.cpp = MonthlyDeeds.cpp
 		MoveStrings.cpp = MoveStrings.cpp
